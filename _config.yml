@@ -1,0 +1,31 @@
+# Permalinks
+permalink:      /:year-:month-:day/:title
+
+# Setup
+title:          Damien Writes
+paginate:       5
+baseurl:        "/home"
+url:            "https://dlionz.github.io"
+
+# Assets
+sass:
+  sass_dir:     _sass
+  style:        :compressed
+
+# Build settings
+markdown:       kramdown
+
+# About
+author:         
+  name:         Damien
+  url:          https://github.com/dlionz
+  email:        damienebreaux@gmail.com
+
+# Custom vars
+version:        3.4.1
+github:
+  repo:         https://github.com/dlionz
+
+# Gems
+plugins:
+  - jekyll-paginate
