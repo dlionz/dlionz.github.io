@@ -4,7 +4,7 @@ permalink:      /:year-:month-:day/:title
 # Setup
 title:          Damien Writes
 paginate:       5
-baseurl:        "/home"
+baseurl:        ""
 url:            "https://dlionz.github.io"
 
 # Assets
