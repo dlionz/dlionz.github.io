@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-08-12T12:50:13-05:00</updated><id>http://localhost:4000/</id><title type="html">Damien Breaux</title><subtitle>This is my personal site and blog</subtitle><entry><title type="html">Refactor Party</title><link href="http://localhost:4000/code,/post/2018/03/13/Refactor-Party.html" rel="alternate" type="text/html" title="Refactor Party" /><published>2018-03-13T00:00:00-05:00</published><updated>2018-03-13T00:00:00-05:00</updated><id>http://localhost:4000/code,/post/2018/03/13/Refactor-Party</id><content type="html" xml:base="http://localhost:4000/code,/post/2018/03/13/Refactor-Party.html">&lt;h1 id=&quot;what-was-i-thinking&quot;&gt;What was I thinking&lt;/h1&gt;
+
+&lt;p&gt;last year I was in a coding boot camp where I learned all of my JS skills, today I was digging through old projects and stumbled upon this abomination of design!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../../../../../imgs/before.png&quot; alt=&quot;Old Version&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Not only is this super ugly, I realized that I wasn’t handling the user inputting blank values, so they could endlessly create blank buttons and that’s no fun. So first let’s fix that, super duper simple all we need is a statement that checks if the value entered is blank or not like this.&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;#addAnimal&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;click&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;preventDefault&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;animal&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;#animal-input&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;trim&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;//simple 'if' to say if the value is NOT null create btn else alert the user&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;animal&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;topics&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;animal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;createButtons&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;input[type='text']&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Please enter a value&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Next, we need to make this look better, the gifs are all jammed against each other and it just looks bad. Nothing a little bootstrap cant fix. I added a &lt;code class=&quot;highlighter-rouge&quot;&gt;card-columns&lt;/code&gt; class to the gif container and &lt;code class=&quot;highlighter-rouge&quot;&gt;card&lt;/code&gt; classes to each gif that is created. This gives us a nice clean looking layout and really brings the look together.&lt;/p&gt;
+
+&lt;p&gt;I also fixed the buttons at the top giving them some space and better colors. as well as a little CSS here and there for margins on the tops and bottoms.&lt;/p&gt;
+
+&lt;p&gt;when it is all said and done my final product looks like this&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../../../../../imgs/after.png&quot; alt=&quot;New Version&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;you can view it live &lt;a href=&quot;https://dlionz.github.io/Giftastic/&quot; title=&quot;Live&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Thanks for reading!!&lt;/p&gt;</content><author><name></name></author><summary type="html">What was I thinking</summary></entry><entry><title type="html">Obsessions</title><link href="http://localhost:4000/life,/code,/post/2018/03/13/Obsessions.html" rel="alternate" type="text/html" title="Obsessions" /><published>2018-03-13T00:00:00-05:00</published><updated>2018-03-13T00:00:00-05:00</updated><id>http://localhost:4000/life,/code,/post/2018/03/13/Obsessions</id><content type="html" xml:base="http://localhost:4000/life,/code,/post/2018/03/13/Obsessions.html">&lt;h1 id=&quot;obsessive-brain&quot;&gt;Obsessive Brain!&lt;/h1&gt;
+
+&lt;p&gt;Does your mind frequently obsess over things you find vaguely interesting? If so are you me? I constantly find myself late night divining into things I come across because my brain simply can’t stop thinking about it. Be it Hearthstone, some fancy JS framework, DwarfFortress, in fact, the entire reason I bought a make was because I came across &lt;a href=&quot;https://jekyllrb.com/&quot; title=&quot;Jekyll&quot;&gt;Jekyll&lt;/a&gt; the static site builder. For months I pour over the docs and videos and just fell in love with the idea of static site generators. Anyway here is a list of things I am loving right now. Maybe you will like them too!&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://jekyllrb.com/&quot; title=&quot;Jekyll&quot;&gt;Jekyll&lt;/a&gt; (code/blog)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://reactjs.org/&quot; title=&quot;React&quot;&gt;React&lt;/a&gt; (code)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://hyperapp.js.org/&quot; title=&quot;HyperApp&quot;&gt;HyperApp&lt;/a&gt; (code)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://playhearthstone.com/en-us/&quot; title=&quot;Hearthstone&quot;&gt;Hearthstone&lt;/a&gt; (game)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://playoverwatch.com/en-us/&quot; title=&quot;Overwatch&quot;&gt;Overwatch&lt;/a&gt; (game)&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">Obsessive Brain!</summary></entry><entry><title type="html">Ready Player Me</title><link href="http://localhost:4000/life,/post,/me,/first/2017/12/03/A-Fresh-Start.html" rel="alternate" type="text/html" title="Ready Player Me" /><published>2017-12-03T00:00:00-06:00</published><updated>2017-12-03T00:00:00-06:00</updated><id>http://localhost:4000/life,/post,/me,/first/2017/12/03/A-Fresh-Start</id><content type="html" xml:base="http://localhost:4000/life,/post,/me,/first/2017/12/03/A-Fresh-Start.html">&lt;h1 id=&quot;title-card-scrolls&quot;&gt;Title Card Scrolls&lt;/h1&gt;
+
+&lt;p&gt;Its the end of 2015, Im reading a blog post by &lt;a href=&quot;http://anthonyramella.com/blog/from-zero-to-hired/&quot;&gt;Anthony Ramella&lt;/a&gt; in this post he talks about how he went from little to know coding expericnce to having a developer job in 5 months. Im currently fresh outta college stuck in a job I dont like wishing I could make more of this thing called life. So I quickly buy &lt;a href=&quot;https://www.barnesandnoble.com/p/html-css-jon-duckett/1110769868/2677974388410?st=PLA&amp;amp;sid=BNB_DRS_Core+Catch-All,+Low_00000000&amp;amp;2sid=Google_&amp;amp;sourceId=PLGoP79700&quot;&gt;John Ducketts&lt;/a&gt; book and I start learning the exciting world of HTML and CSS. Few months later I fall off the wagon, Ive started a new job. One I thought would bring me into the exciting world of tech.&lt;/p&gt;
+
+&lt;p&gt;Smash cut to the beining of 2017 and Im back in the same place I was at the end of 2015. Im tired of waking up day and going to a job that doesnt fullfill me. I remeber that great article I read by Anthony. I start looking into Coding Bootcamps, and I promise myself that I will be a devloper by the end of the year.&lt;/p&gt;
+
+&lt;p&gt;Slow pan to me day one at bootcamp with a brand new MacBook Pro, excited as anyone can be. I had alot of self doubt coming into this mostly becasue I had this stigma baked into my brain that other developers looked down on “bootcampers” (turns out this inst true we just hear the loud angry people the most) and I really wanted this to work out for me.&lt;/p&gt;
+
+&lt;p&gt;Fade into me handing in my 2 weeks at work. The calander reads August 21st 2017. I had known I wanted to quit from the first of the year, I just wasnt sure when the right moment would be. Funny how it ended up being a week before the second most costly natural disastor in Us history until this point…Hurricane Harvey. My biggest worry in quitting was money. I knew I could be ok for maybe 6 months before I had to seriously consider taking a new job. But in this period of time I would dedicate myself fully to learning the ins-and-outs of JavaScript.&lt;/p&gt;
+
+&lt;p&gt;Cut to me getting a call from my mom saying “I have a freind whos husband has a software company”…&lt;/p&gt;
+
+&lt;p&gt;montage: “Meeting people”, “Wearing a button up”, “Petting a dog”, “Interviewing”  “Discovering Milk Tea is amazing”&lt;/p&gt;
+
+&lt;p&gt;spotlight, I am a developer.&lt;/p&gt;
+
+&lt;p&gt;final act.&lt;/p&gt;
+
+&lt;p&gt;I recognize that not everyone can just up and leave their jobs, that not everyone can afford a bootcamp, that I could have done all of this for free on the internet. I recognize that im not as good as I want to be and I will always think that. But Iam proud of every desicion I made and all the chances I took. I set out to acomplish somthing. I wanted to change my situation to a better one and I did it, and absolutly id do it all over again.&lt;/p&gt;
+
+&lt;p&gt;this blog will be a collection of my “whatevers”. I hope it can server as a learning device for me, maybe inspiration for you who knows. anyways, thanks for reading.&lt;/p&gt;
+
+&lt;p&gt;-Damien&lt;/p&gt;</content><author><name></name></author><summary type="html">Title Card Scrolls</summary></entry></feed>

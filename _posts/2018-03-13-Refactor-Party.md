@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Refactor Party"
-date:   2018-03-13
+title: "Refactor Party"
+date: 2018-03-13
 categories: Code, Post
 Author: Damien
 ---
@@ -10,10 +10,9 @@ Author: Damien
 
 last year I was in a coding boot camp where I learned all of my JS skills, today I was digging through old projects and stumbled upon this abomination of design!
 
-![Old Version](../imgs/before.png)
+![Old Version](../../../../../imgs/before.png)
 
 Not only is this super ugly, I realized that I wasn't handling the user inputting blank values, so they could endlessly create blank buttons and that's no fun. So first let's fix that, super duper simple all we need is a statement that checks if the value entered is blank or not like this.
-
 
 ```javascript
 $("#addAnimal").on("click", function(event) {
@@ -38,7 +37,7 @@ I also fixed the buttons at the top giving them some space and better colors. as
 
 when it is all said and done my final product looks like this
 
-![New Version](../imgs/after.png)
+![New Version](../../../../../imgs/after.png)
 
 you can view it live [here][1]
 
